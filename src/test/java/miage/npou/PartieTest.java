@@ -69,8 +69,7 @@ public class PartieTest {
     @Test
     public void calculScoreTest(){
 
-        // Given : pour une partie où il n'y a que des strikes
-        // et les lancés supplémentaires aussi
+        // Given : pour une partie où tous les scores sont 3 et 6
 
         List<Frame> lesFrames = new ArrayList<Frame>();
 
@@ -89,4 +88,35 @@ public class PartieTest {
         assertEquals(new Integer (90), score);
 
     }
+
+    @Test
+    public void calculScoreRandomTest(){
+
+        // Given : pour une partie où il n'y a que des strikes
+        // et les lancés supplémentaires aussi
+
+        List<Frame> lesFrames = new ArrayList<Frame>();
+
+        lesFrames.add(new Frame(3,6));
+        lesFrames.add(new Frame(10,null)); // Strike + 5 + 5
+        lesFrames.add(new Frame(5,5)); // Spare + 3
+        lesFrames.add(new Frame(3,7)); // Spare + 3
+        lesFrames.add(new Frame(3,2));
+        lesFrames.add(new Frame(3,5));
+        lesFrames.add(new Frame(10,null)); // Strike + 8 + 0
+        lesFrames.add(new Frame(8,0));
+        lesFrames.add(new Frame(7,1));
+        lesFrames.add(new Frame(4,6)); // Spare + 8
+        lesFrames.add(new Frame(8,null));
+
+        unePartie = new Partie(lesFrames);
+
+        // When : on demande le score
+        Integer score = unePartie.calculScore();
+
+        // Then : on devrait obtenir 120
+        assertEquals(new Integer (120), score);
+
+    }
+
 }
