@@ -16,19 +16,7 @@ public class Frame {
 
         this.strike = (l1==10);
 
-        //En cas de strike on instacie le lance 2 à null
-        if (isStrike()){
-            this.lance2 = null;
-        }else{
-            int somme = l1+l2;
-            //Si la somme est supérieure à 10 on donne le reste de 10 moins le lancé 1 à 2
-            if (somme>11){
-                this.lance2 = 10 - l1;
-            }else {
-                this.lance2 = l2;
-            }
-        }
-
+        this.lance2 = l2;
 
         if (l2!=null) {
             this.spare = (this.lance1 + this.lance2 == 10);
