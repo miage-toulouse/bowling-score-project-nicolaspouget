@@ -24,14 +24,13 @@ public class Frame {
 
     }
 
-
     public int getScore(){
 
         int score = 0;
 
-        if (isStrike()){
+        if (this.lance2 == null){
 
-            score += 10;
+            score += this.lance1;
 
         }else{
 

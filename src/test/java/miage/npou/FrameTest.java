@@ -28,12 +28,7 @@ public class FrameTest {
 
         // When : En cas de strike sur la partie
         aFrame = new Frame(new Integer(10), null);
-
-        // Then : on vérifie que le score est bien de 10
-        assertEquals(10, score);
-
-        // When : En cas de strike sur la partie
-        aFrame = new Frame(new Integer(9), new Integer(2));
+        score = aFrame.getScore();
 
         // Then : on vérifie que le score est bien de 10
         assertEquals(10, score);
